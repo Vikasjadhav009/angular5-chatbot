@@ -1,0 +1,13 @@
+
+
+<ng-container *ngFor="let el of allchats">
+	<div class="well" [ngClass] = "[el === 'thanks'? 'well1':'well2', el === 'thanks'? 'pos':'']">{{el}}</div>
+
+	<div style="text-align: center;" *ngIf="el === 'image' ">
+	 	<img src="../../assets/angular.png" class="img-responsive" style="width:250px; margin: 0 auto;">	
+	 </div>
+ 
+
+</ng-container>
+
+  
