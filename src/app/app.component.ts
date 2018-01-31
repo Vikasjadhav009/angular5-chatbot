@@ -22,23 +22,30 @@ export class AppComponent {
   	 constructor(private chatS:ChatService){}
 
   	 addChat(text){
-		this.data.push(text);
 
-		if(text === 'image'){
-			//this.data.push() 
-		}else{
-			this.data.push('thanks');	
-		}		
-		
-		//console.log(this.data);
-		this.chatS.getData(this.data);
+  	 			if(text.toLowerCase() === 'image'){
 
-		this.chatS.changeEve.next(this.data);
+  	 				text = text.toLowerCase();
+  	 			}
 
-		  	 $(".panel-body").stop().animate({
-  	  scrollTop: $(".panel-body")[0].scrollHeight}, 1000);
+				this.data.push(text);
 
-		  	 this.textData = '';
+				if(text !== 'image')
+				{
+					this.data.push('thanks');	
+				}
+					
+				
+				console.log(this.data);
+				this.chatS.getData(this.data);
+
+				this.chatS.changeEve.next(this.data);
+
+				//JQuery use for smooth scroll
+		  	 	$(".panel-body").stop().animate({
+  	  			scrollTop: $(".panel-body")[0].scrollHeight}, 1000);
+
+		  	 	this.textData = '';
 
 
   	 }
